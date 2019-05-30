@@ -1,0 +1,29 @@
+# Keeps a catalog of owned video games. If no new games, list remains same.
+# If new game is purchased, a new list is created - lists are not mutated.
+
+games = ['CIV 5',
+         'Borderlands 2',
+         'Destiny']
+
+def newList(games, new):
+    games = games + [new]
+    games.sort()
+    return games
+
+while True:
+    print('Have you recently purchased a game? Type Yes or No')
+    answer = input()
+    if answer == 'Yes':
+        print('Please provide name of new game. I\'ll add it to your current catalog.')
+        new = input()
+        games = newList(games, new)
+        print(games)
+    
+    elif answer == 'No':
+        print('OK. Your game catalog remains the same.')
+        print(games)
+        continue
+
+    else:
+        print('You clearly didn\'t read the instructions.')
+        
