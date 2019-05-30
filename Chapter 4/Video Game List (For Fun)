@@ -18,12 +18,11 @@ while True:
         new = input()
         games = newList(games, new)
         print(games)
-    
+        
     elif answer == 'No':
         print('OK. Your game catalog remains the same.')
         print(games)
-        continue
-
+        
     else:
         print('You clearly didn\'t read the instructions.')
         
