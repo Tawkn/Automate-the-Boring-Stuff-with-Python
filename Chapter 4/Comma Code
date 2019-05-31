@@ -1,0 +1,17 @@
+# converts a list to a string
+# adds a comma after each index
+# adds "and" before the last word
+
+spam = ['apples', 'bananas', 'tofu', 'cats']
+
+
+def list2str(spam):
+    output = ''
+    for i in range(len(spam)):
+        if i != len(spam) - 1:
+            output += str(spam[i]) + ', '
+        else:
+            output += 'and ' + str(spam[i])
+    return output
+
+print(list2str(spam))
