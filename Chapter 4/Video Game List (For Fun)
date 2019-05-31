@@ -9,6 +9,10 @@ def newList(games, new):
     games = games + [new]
     games.sort()
     return games
+    
+print('Here\'s your current game catalog:')
+for i in range(len(games)):
+            print('     ' + str(i) + ': ' + games[i]) 
 
 while True:
     print('Have you recently purchased a game? Type Yes or No')
@@ -17,13 +21,12 @@ while True:
         print('Please provide name of new game. I\'ll add it to your current catalog.')
         new = input()
         games = newList(games, new)
-        print('Here\'s your complete game catalog:')
+        print('Here\'s your updated game catalog:')
         for i in range(len(games)):
             print('     ' + str(i) + ': ' + games[i])        
         
     elif answer == 'No':
         print('OK. Your game catalog remains the same.')
-        print(games)
         
     else:
         print('You clearly didn\'t read the instructions, whistledick.')
