@@ -1,18 +1,28 @@
 # Keeps a catalog of owned video games. If no new games, list remains same.
 # If new game is purchased, a new list is created - lists are not mutated.
+# 1.1 version introduces removing an index from list 
 
 games = ['CIV 5',
          'Borderlands 2',
          'Destiny']
 
-def newList(games, new):
+def addGame(games, new):
     games = games + [new]
     games.sort()
     return games
-    
-print('Here\'s your current game catalog:')
+
+def removeGame(games, removed):
+    games.remove(removed)
+    games.sort()
+    return games
+
+def updatedList(games):
+    for i in range(len(games)):
+        yield '     ' + str(i) + ': ' + games[i]
+        
+print('Current game catalog:')
 for i in range(len(games)):
-            print('     ' + str(i) + ': ' + games[i]) 
+    print('     ' + str(i) + ': ' + games[i]) 
 
 while True:
     print('Have you recently purchased a game? Type Yes or No')
@@ -20,13 +30,21 @@ while True:
     if answer == 'Yes':
         print('Please provide name of new game. I\'ll add it to your current catalog.')
         new = input()
-        games = newList(games, new)
-        print('Here\'s your updated game catalog:')
-        for i in range(len(games)):
-            print('     ' + str(i) + ': ' + games[i])        
+        games = addGame(games, new)
+        print('Updated game catalog:')
+        for i in updatedList(games):
+            print(i)
         
     elif answer == 'No':
-        print('OK. Your game catalog remains the same.')
+        print('Have you removed a game from your catalog? Type Yes or No')
+        answer = input()
+        if answer == 'Yes':
+            print('Please enter the title you removed.')
+            removed = input()
+            games = removeGame(games, removed)
+            print('Updated game catalog:')
+            for i in updatedList(games):
+                print(i)
         
     else:
         print('You clearly didn\'t read the instructions, whistledick.')
