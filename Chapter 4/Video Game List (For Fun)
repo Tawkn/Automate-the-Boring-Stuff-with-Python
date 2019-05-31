@@ -17,12 +17,14 @@ while True:
         print('Please provide name of new game. I\'ll add it to your current catalog.')
         new = input()
         games = newList(games, new)
-        print(games)
+        print('Here\'s your complete game catalog:')
+        for i in range(len(games)):
+            print('     ' + str(i) + ': ' + games[i])        
         
     elif answer == 'No':
         print('OK. Your game catalog remains the same.')
         print(games)
         
     else:
-        print('You clearly didn\'t read the instructions.')
+        print('You clearly didn\'t read the instructions, whistledick.')
         
