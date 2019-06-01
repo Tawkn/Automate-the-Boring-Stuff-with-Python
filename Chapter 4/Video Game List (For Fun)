@@ -45,7 +45,7 @@ while True:
             print('Updated game catalog:')
             for i in updatedList(games):
                 print(i)
-         else:
+        else:
             print('Then what exactly are we trying to do here?')
             break
         
