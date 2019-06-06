@@ -1,11 +1,34 @@
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger':1, 'arrow': 12}
 
-def displayInventory(inventory): # Prints contents and total number of items in inventory
-    print("Inventory:")
-    item_total = 0
+def inventoryList(inventory):   #Function for quiz
+    print('Inventory:')
+    totalQty = 0
     for k, v in inventory.items():
         print(str(v) + ' ' + k)
-        item_total += v
-    print("Total number of items: " + str(item_total))
+        totalQty += v
+    print('You have ' + str(totalQty) + ' items in your inventory.')
 
-displayInventory(stuff)
+def inventoryItem(inventory):   #Additional function I created for practice
+    print('Types of items:')
+    totalQty = 0
+    for k in inventory.keys():
+        print(k)
+        totalQty += 1
+    print('You have ' + str(totalQty) + ' types of items.')
+
+def inventoryQty(inventory):    #Additional function I created for practice
+    print('Qty\'s of items:')
+    totalQty = 0
+    for v in inventory.values():
+        print(v)
+        totalQty += v
+    print('You have ' + str(totalQty) + ' total items.')
+        
+
+inventoryItem(stuff)
+print('------------------')
+inventoryQty(stuff)
+print('------------------')
+inventoryList(stuff)
+print('------------------')
+                    
